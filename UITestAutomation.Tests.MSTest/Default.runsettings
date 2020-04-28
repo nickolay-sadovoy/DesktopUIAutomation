@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <!-- https://msdn.microsoft.com/en-us/library/jj635153.aspx -->
+
+  <RunConfiguration>
+    <TargetPlatform>X86</TargetPlatform>
+    <TestSessionTimeout>21600000</TestSessionTimeout>
+    <InIsolation>True</InIsolation>
+    <CollectSourceInformation>False</CollectSourceInformation>
+    <ExecutionThreadApartmentState>STA</ExecutionThreadApartmentState>
+    <TreatTestAdapterErrorsAsWarnings>False</TreatTestAdapterErrorsAsWarnings>
+  </RunConfiguration>
+
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <!-- Screen video will be attacehd to test result. -->
+      <DataCollector friendlyName="Screen and Voice Recorder" uri="datacollector://microsoft/VideoRecorder/1.0" enabled="true"/>
+      
+      <DataCollector friendlyName="Lingering Process Collector" uri="datacollector://microsoft/DevDiv/TestExtensions/LingeringProcessCollector/v1" enabled="True">
+        <Configuration>
+          <KillLingeringProcesses>false</KillLingeringProcesses>
+          <LoggingBehavior>Warning</LoggingBehavior>
+          <CollectDumps>false</CollectDumps>
+          <RootDumpDirectory>%SystemDrive%\dumps</RootDumpDirectory>
+        </Configuration>
+      </DataCollector>
+    </DataCollectors>
+  </DataCollectionRunSettings>
+
+  <LoggerRunSettings>
+    <Loggers>
+      <Logger friendlyName="trx" uri="logger://microsoft/TestPlatform/TrxLogger/v1" enabled="True" />
+    </Loggers>
+  </LoggerRunSettings>
+
+  <MSTest>
+    <MapInconclusiveToFailed>True</MapInconclusiveToFailed>
+    <DeploymentEnabled>False</DeploymentEnabled>
+  </MSTest>
+
+</RunSettings>
